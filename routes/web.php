@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/about', function(){
+/*Route::get('/about', function(){
 
    return "This is about us";
 });
@@ -26,7 +26,30 @@ Route::get('/contact', function () {
    return "This is the contact";
 });
 
-Route::get('/post/{id}', function ($id) {
-   return "This is post number ".$id;
+Route::get('/post/{id}/{name}', function ($id, $name) {
+   return "This is post number ".$id . " " . $name;
 });
 
+Route::get('admin/post/example', array('as' =>'admin.post', function(){
+    $url = route('admin.post');
+    return "this url is" . $url;
+}));*/
+
+Route::get('post', 'PostsController@index');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Route::group(['middleware' => ['web']], function () {
+
+});
